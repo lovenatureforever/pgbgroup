@@ -1,0 +1,141 @@
+/*
+
+1. Add your custom Css styles below
+2. Place the this code in your template:
+
+ <link href="css/custom.css" rel="stylesheet">
+
+*/
+
+.accordion {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.accordion .section {
+    position: relative;
+    display: flex;
+    width: 140px;
+    height: 500px;
+    margin: 1em 0 1em 1em;
+    color: #333;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.accordion .section .section-title {
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.4;
+    left: 20px;
+    top: 470px;
+    text-indent: 1em;
+    padding: 0;
+    margin: 0;
+    color: #ddd;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    width: 400px;
+}
+
+.accordion .section p {
+    color: #fff;
+    opacity: 0;
+    position: absolute;
+    width: 70%;
+    top: 100%;
+}
+
+.accordion .section .btn {
+    opacity: 0;
+    height: 42px;
+    top: 500px;
+    left: 20px;
+}
+
+.accordion .section.is-open {
+    padding: 0 1em;
+    color: #333;
+    background-color: #fff;
+    cursor: default;
+    flex-grow: 1;
+    /* transition: all 0.5s ease; */
+}
+
+.accordion .section.is-open p {
+    opacity: 1;
+    top: 47%;
+    left: 40px;
+}
+
+.accordion .section.is-open .btn {
+    opacity: 1;
+    top: 400px;
+}
+
+.accordion .section.is-open .section-title {
+    top: 30%;
+    left: 40px;
+    font-size: 40px;
+    text-indent: 0;
+    color: #fff;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.accordion .section,
+.accordion .section .section-title,
+.accordion .section p,
+.accordion .section .btn {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: #0056b3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.portfolio-image,
+.portfolio-slider .flickity-viewport
+{
+    border-radius: 20px;
+}
+
+.p-t-350 { padding-top: 350px !important; }
+
+.post-item .rounded-4 .post-image img
+{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
