@@ -34,7 +34,7 @@
                     <span class="strong"><a href="#" class="business"><span class="business">Business</span></a>
                     </span>
                     <h1>Building Beyond Expectations <br>with Innovation & Precision</h1>
-                    <button type="button" class="btn btn-outline btn-roundeded">Explore</button>
+                    <button type="button" class="btn btn-light btn-outline btn-roundeded">Explore</button>
                     <!-- end: Captions -->
                 </div>
             </div>

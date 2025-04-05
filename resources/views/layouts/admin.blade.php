@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}" class="dark-mode">
 <head>
     <meta charset="utf-8" />
-    <title>Summit Hotel Subang USJ | @yield('title')</title>
+    <title>PGB Group | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -51,8 +51,6 @@
 		</div>
 
 		@include('admin.includes.component.scroll-top-btn')
-
-		{{-- @include('includes.component.theme-panel') --}}
 
 	</div>
 

@@ -40,8 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-    ],
 
+        // Add this for Sanctum API authentication
+        'sanctum' => [
+            'driver' => 'sanctum', // Uses Sanctum's custom driver
+            'provider' => 'users', // Uses the 'users' provider (Eloquent)
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | User Providers
