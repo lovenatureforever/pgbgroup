@@ -139,3 +139,14 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
+.background-light-50
+{
+    background-color: #f0f8ff80 !important;
+}
+
+.flex-center
+{
+    display: flex;
+    justify-content: center;
+}

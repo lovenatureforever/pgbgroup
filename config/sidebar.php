@@ -33,9 +33,9 @@ return [
             'caret' => true,
             'sub_menu' => [
                 [
-                    'url' => '/admin/services',
-                    'title' => 'Service Management',
-                    'route-name' => 'admin.services.index'
+                    'url' => '/admin/blogs',
+                    'title' => 'Blog Management',
+                    'route-name' => 'admin.blogs.index'
                 ],
             ]
         ]

@@ -69,56 +69,38 @@ class UserController extends Controller
         return response()->json(['data' => $users], ResponseAlias::HTTP_OK);
     }
 
-    public function active(Request $request, $id)
+    public function active(Request $request, User $user)
     {
         $validatedData = $request->validate([
             'active' => 'required|boolean',
         ]);
 
-        if ($id != $request->id) {
-            return response()->json(['error' => 'ID mismatch.'], ResponseAlias::HTTP_BAD_REQUEST);
-        }
-
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json(['error' => 'User not found.'], ResponseAlias::HTTP_NOT_FOUND);
-        }
-
         $user->active = $validatedData['active'];
         $user->save();
 
-        return response()->json(['message' => 'User status updated successfully.', 'user' => $user], ResponseAlias::HTTP_OK);
+        return response()->json([
+            'message' => 'User status updated successfully.',
+            'user' => $user,
+        ], ResponseAlias::HTTP_OK);
     }
 
-    public function apiResetPassword(Request $request, $id)
+    public function apiResetPassword(Request $request, User $user)
     {
         $validatedData = $request->validate([
             'password' => 'required|string|min:8',
         ]);
 
-        if ($id != $request->id) {
-            return response()->json(['error' => 'ID mismatch.'], ResponseAlias::HTTP_BAD_REQUEST);
-        }
-
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json(['error' => 'User not found.'], ResponseAlias::HTTP_NOT_FOUND);
-        }
-
         $user->password = Hash::make($validatedData['password']);
         $user->save();
 
-        return response()->json(['message' => 'Password reset successfully.', 'user' => $user], ResponseAlias::HTTP_OK);
+        return response()->json([
+            'message' => 'Password reset successfully.',
+            'user' => $user->only(['id', 'name', 'email']) // avoid returning sensitive info
+        ], ResponseAlias::HTTP_OK);
     }
 
     public function destroy(User $user)
     {
-        if (!$user) {
-            return response()->json(['error' => 'User not found.'], ResponseAlias::HTTP_NOT_FOUND);
-        }
-
         try {
             $user->delete();
             return response()->json(['message' => 'User deleted successfully.'], ResponseAlias::HTTP_OK);

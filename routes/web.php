@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FileController;
 
 Route::get('/', function () {
@@ -14,9 +15,8 @@ Auth::routes();
 // auth()->routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/upload', [FileController::class, 'apiUploadFile'])->name('api.upload');
-
     Route::group(['prefix'=> 'admin', 'as'=> 'admin.'], function () {
+        Route::post('/upload', [FileController::class, 'apiUploadFile'])->name('upload');
         Route::get('/', [AdminHomeController::class,'index'])->name('dashboard');
 
         Route::group(['prefix'=> 'users','as'=> 'users.'], function () {
@@ -26,9 +26,21 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{user}/edit', [UserController::class,'edit'])->name('edit');
             Route::put('/{user}', [UserController::class,'update'])->name('update');
             Route::get('/all', [UserController::class,'apiIndex'])->name('api-index');
-            Route::delete('/{id}', [UserController::class,'destroy'])->name('delete');
-            Route::patch('/{id}/active', [UserController::class,'active'])->name('active');
-            Route::put('/{id}/reset-password', [UserController::class,'apiResetPassword'])->name('reset');
+            Route::delete('/{user}', [UserController::class,'destroy'])->name('delete');
+            Route::patch('/{user}/active', [UserController::class,'active'])->name('active');
+            Route::put('/{user}/reset-password', [UserController::class,'apiResetPassword'])->name('reset');
+        });
+
+        Route::group(['prefix'=> 'blogs','as'=> 'blogs.'], function () {
+            Route::get('/', [BlogController::class,'index'])->name('index');
+            Route::get('/all', [BlogController::class,'apiIndex'])->name('api-index');
+            Route::get('/new', [BlogController::class,'create'])->name('new');
+            Route::post('/', [BlogController::class,'store'])->name('store');
+            Route::get('/{blog}/edit', [BlogController::class,'edit'])->name('edit');
+            Route::put('/{blog}', [BlogController::class,'update'])->name('update');
+            Route::delete('/{blog}', [BlogController::class,'destroy'])->name('delete');
+            Route::patch('/{blog}/publish', [BlogController::class, 'publish']);
+            Route::patch('/{blog}/archive', [BlogController::class, 'archive']);
         });
     });
 });

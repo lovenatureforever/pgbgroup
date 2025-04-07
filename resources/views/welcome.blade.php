@@ -194,7 +194,7 @@
         <div class="container">
             <div class="heading-text heading-section">
                 <h2>OUR LATEST PROJECTS</h2>
-                <span class="lead">Create amam ipsum dolor sit amet, Beautiful nature, and rare feathers!.</span>
+                <span class="lead">Discover our latest projects that showcase innovation, precision, and excellence in every detail – PGB Group, Building Beyond Expectations.</span>
             </div>
             <!-- Portfolio Filter -->
             <nav class="grid-filter gf-outline" data-layout="#portfolio">
@@ -364,8 +364,8 @@
 
             <div class="row">
                 <div class="col-lg-7" data-animate="fadeIn">
-                    <div class="blockquote">
-                        <p class="h3 ">We take pride in being an innovative market leader, with good corporate ethics and culture.</p>
+                    <div class="blockquote background-light-50">
+                        <p class="h3">We take pride in being an innovative market leader, with good corporate ethics and culture.</p>
                         <small>by <cite>Dato′ Sri Edwin Tan Pei Seng</cite> (Executive Chairman)</small>
                     </div>
                 </div>
@@ -379,7 +379,7 @@
         <div class="container">
             <div class="heading-text heading-section text-center">
                 <h2>OUR LATEST BLOG</h2>
-                <span class="lead">The most happiest time of the day!.</span>
+                <span class="lead">Explore our latest insights and innovations in construction at PGB Group – Building Beyond Expectations.</span>
             </div>
             <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
                 <!-- Post item-->
@@ -451,6 +451,22 @@
         </div>
     </section>
     <!-- end: BLOG -->
+
+    <!-- ROADMAP -->
+    <section id="welcome" class="p-b-0">
+        <div class="">
+            <div class="heading-text heading-section text-center m-b-40 animate__animated animate__fadeInUp visible" data-animate="fadeInUp">
+                <h2>ROADMAP</h2>
+                <span class="lead">See our strategic journey toward excellence – PGB Group's Roadmap to Building Beyond Expectations.</span>
+            </div>
+            <div class="row animate__animated animate__fadeInUp visible" data-animate="fadeInUp">
+                <div class="col-lg-12 flex-center">
+                    <img class="img-fluid" src="{{ asset('images/roadmap.webp') }}" alt="Welcome to POLO">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end: ROADMAP -->
 @endsection
 
 @push('script')
