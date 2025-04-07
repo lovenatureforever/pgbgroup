@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,6 +42,18 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{blog}', [BlogController::class,'destroy'])->name('delete');
             Route::patch('/{blog}/publish', [BlogController::class, 'publish']);
             Route::patch('/{blog}/archive', [BlogController::class, 'archive']);
+        });
+
+        Route::group(['prefix'=> 'projects','as'=> 'projects.'], function () {
+            Route::get('/', [ProjectController::class,'index'])->name('index');
+            Route::get('/all', [ProjectController::class,'apiIndex'])->name('api-index');
+            Route::get('/new', [ProjectController::class,'create'])->name('new');
+            Route::post('/', [ProjectController::class,'store'])->name('store');
+            Route::get('/{project}/edit', [ProjectController::class,'edit'])->name('edit');
+            Route::put('/{project}', [ProjectController::class,'update'])->name('update');
+            Route::delete('/{project}', [ProjectController::class,'destroy'])->name('delete');
+            Route::patch('/{project}/publish', [ProjectController::class, 'publish']);
+            Route::patch('/{project}/archive', [ProjectController::class, 'archive']);
         });
     });
 });

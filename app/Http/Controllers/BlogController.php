@@ -58,17 +58,17 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
-        return view('admin.pages.blogs.show')->with('blog', Blog::find($id));
+        return view('admin.pages.blogs.show')->with('blog', $blog);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Blog $blog)
     {
-        return view('admin.pages.blogs.edit')->with('blog', Blog::find($id));
+        return view('admin.pages.blogs.edit')->with('blog', $blog);
     }
 
     /**
@@ -126,6 +126,12 @@ class BlogController extends Controller
     public function apiIndex()
     {
         $blogs = Blog::all();
+        return response()->json(['data' => $blogs], ResponseAlias::HTTP_OK);
+    }
+
+    public function latestBlogs()
+    {
+        $blogs = Blog::latest()->take(3)->get();
         return response()->json(['data' => $blogs], ResponseAlias::HTTP_OK);
     }
 }

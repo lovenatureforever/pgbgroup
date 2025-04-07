@@ -37,6 +37,11 @@ return [
                     'title' => 'Blog Management',
                     'route-name' => 'admin.blogs.index'
                 ],
+                [
+                    'url' => '/admin/projects',
+                    'title' => 'Project Management',
+                    'route-name' => 'admin.projects.index'
+                ],
             ]
         ]
     ]
