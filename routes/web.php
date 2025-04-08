@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SlideController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,6 +55,18 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{project}', [ProjectController::class,'destroy'])->name('delete');
             Route::patch('/{project}/publish', [ProjectController::class, 'publish']);
             Route::patch('/{project}/archive', [ProjectController::class, 'archive']);
+        });
+
+        Route::group(['prefix'=> 'slides','as'=> 'slides.'], function () {
+            Route::get('/', [SlideController::class,'index'])->name('index');
+            Route::get('/all', [SlideController::class,'apiIndex'])->name('api-index');
+            Route::get('/new', [SlideController::class,'create'])->name('new');
+            Route::post('/', [SlideController::class,'store'])->name('store');
+            Route::get('/{slide}/edit', [SlideController::class,'edit'])->name('edit');
+            Route::put('/{slide}', [SlideController::class,'update'])->name('update');
+            Route::delete('/{slide}', [SlideController::class,'destroy'])->name('delete');
+            Route::patch('/{slide}/publish', [SlideController::class, 'publish']);
+            Route::patch('/{slide}/archive', [SlideController::class, 'archive']);
         });
     });
 });

@@ -21,8 +21,13 @@ return [
             'sub_menu' => [
                 [
                     'url' => '/admin/users',
-                    'title' => 'Manage Users',
+                    'title' => 'Users',
                     'route-name' => 'users.index'
+                ],
+                [
+                    'url' => '/admin/slides',
+                    'title' => 'Hompage Slides',
+                    'route-name' => 'slides.index'
                 ]
             ]
         ],
