@@ -126,7 +126,7 @@
     // myDropzone.emit("success", mockFile);
     myDropzone.emit("complete", mockFile);
     // And optionally show the thumbnail of the file:
-    myDropzone.emit("thumbnail", mockFile, "/upload/{{ $blog->image }}");
+    myDropzone.emit("thumbnail", mockFile, "{{ $blog->image }}");
 
     $('form').append('<input type="hidden" name="image" value="{{ $n }}">');
 

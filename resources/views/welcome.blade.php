@@ -11,54 +11,23 @@
 @section('content')
     <!-- Inspiro Slider -->
     <div id="slider" class="inspiro-slider slider-fullscreen dots-creative">
-        <!-- Slide 1 -->
-        <div class="slide background-image" style="background-image:url('images/1.jpg');">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="slide-captions text-center text-light">
-                    <!-- Captions -->
-                    <span class="strong"><a href="#" class="business"><span class="business">Business</span></a>
-                    </span>
-                    <h1>Building Excellence.</h1>
-                    <h1>Paragon of Sustainability.</h1>
-                    <h3>Foundations for tomorrow, Investments for life.</h3>
+        @foreach ($slides as $slide)
+            <div class="slide background-image {{$slide->effect}}" style="background-image:url('{{$slide->image}}');">
+                <div class="bg-overlay"></div>
+                <div class="container">
+                    <div class="slide-captions {{$slide->text_align}} {{$slide->text_color}}">
+                        <!-- Captions -->
+                        <span class="strong"><a href="#" class="business"><span class="business">{{$slide->category}}</span></a>
+                        </span>
+                        <h1>{!! nl2br(($slide->title)) !!}</h1>
+                        <h3>{!! nl2br(($slide->description)) !!}</h3>
 
-                    <button type="button" class="btn btn-primary">Get Started</button>
-                    <!-- end: Captions -->
+                        <button type="button" class="btn {{$slide->button_type}}">{{$slide->button_text}}</button>
+                        <!-- end: Captions -->
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- end: Slide 1 -->
-        <!-- Slide 2 -->
-        <div class="slide kenburns background-image" style="background-image:url('images/2.jpg');">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="slide-captions text-start text-light">
-                    <!-- Captions -->
-                    <span class="strong"><a href="#" class="business"><span class="business">Business</span></a>
-                    </span>
-                    <h1>Building Beyond Expectations <br>with Innovation & Precision</h1>
-                    <button type="button" class="btn btn-light btn-outline btn-roundeded">Explore</button>
-                    <!-- end: Captions -->
-                </div>
-            </div>
-        </div>
-        <!-- end: Slide 2 -->
-        <!-- Slide 3 -->
-        <div class="slide kenburns background-image" style="background-image:url('images/3.jpg');">
-            <div class="bg-overlay"></div>
-            <div class="container">
-                <div class="slide-captions text-start text-light">
-                    <!-- Captions -->
-                    <span class="strong"><a href="#" class="business"><span class="business">Business</span></a>
-                    </span>
-                    <h1>Quality Construction,<br>On Time, Every Time.</h1>
-                    <button type="button" class="btn btn-light btn-roundeded">Explore</button>
-                    <!-- end: Captions -->
-                </div>
-            </div>
-        </div>
-        <!-- end: Slide 3 -->
+        @endforeach
     </div>
     <!--end: Inspiro Slider -->
     <!-- About us -->
@@ -384,6 +353,32 @@
             <!-- end: Portfolio Filter -->
             <!-- Portfolio -->
             <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
+                @foreach ($projects as $project)
+                    <!-- portfolio item -->
+                    <div class="portfolio-item no-overlay ct-{{ $project->category }}">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-slider">
+                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
+                                    @foreach ($project->images as $image)
+                                    <a href="#"><img src="{{ $image->url }}" alt=""></a>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <span class="status-tag {{$project->status}}">{{ ucfirst($project->status) }}</span>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>{{ $project->title }}</h3>
+                                    <span>{{ $project->description }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+                @endforeach
+{{--
+
+
+
                 <!-- portfolio item -->
                 <div class="portfolio-item no-overlay ct-residential">
                     <div class="portfolio-item-wrap">
@@ -536,7 +531,7 @@
                 <!-- end: portfolio item -->
             </div>
             <!-- end: Portfolio -->
-        </div>
+        </div> --}}
     </section>
     <!-- end: Projects -->
 

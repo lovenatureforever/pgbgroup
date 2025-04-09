@@ -23,7 +23,7 @@ class FileController extends Controller
         foreach ($request->file('file') as $file) {
             $imageName = uniqid() . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('upload'), $imageName);
-            $names[] = $imageName;
+            $names[] = "/upload/{$imageName}";
             $originalNames[] = $file->getClientOriginalName();
         }
 

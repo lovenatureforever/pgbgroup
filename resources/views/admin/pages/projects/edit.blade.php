@@ -168,7 +168,7 @@
         myDropzone.emit("successmultiple", [mockFile], {name: [mockFile.name]});
         myDropzone.emit("complete", mockFile);
         // And optionally show the thumbnail of the file:
-        myDropzone.emit("thumbnail", mockFile, "/upload/{{ $image->url }}");
+        myDropzone.emit("thumbnail", mockFile, "{{ $image->url }}");
 
         {{--$('form').append('<input type="hidden" name="images[]" value="{{ $n }}">');--}}
     @endforeach

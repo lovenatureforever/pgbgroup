@@ -138,7 +138,7 @@
                         {
                             data: 'images',
                             render: (data, type, row) => {
-                                return '<img src="'+ '/upload/' + data[0]?.url +'" onerror="imgerr(this)" class="rounded" width="120" alt="dining image">';
+                                return '<img src="'+ data[0]?.url +'" onerror="imgerr(this)" class="rounded" width="120" alt="dining image">';
                             }
                         },
                         {data: 'title'},

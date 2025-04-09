@@ -97,12 +97,12 @@ class SlideController extends Controller
 
         if ($request->hasFile('image')) {
             // Optional: Delete old image file
-            Storage::delete('uploads/' . $slide->image);
+            Storage::delete('upload/' . $slide->image);
 
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $filename);
-            $validated['image'] = 'uploads/' . $filename;
+            $file->move(public_path('upload'), $filename);
+            $validated['image'] = 'upload/' . $filename;
         }
         else {
             $validated['image'] = $slide->image;

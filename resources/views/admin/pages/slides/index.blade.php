@@ -155,7 +155,7 @@
                         {
                             data: 'description',
                             render: (data, type, row) => {
-                                return data.replace(/(\r\n|\n)/g, '<br>');
+                                return data ? data.replace(/(\r\n|\n)/g, '<br>') : '';
                             }
                         },
                         {data: 'category'},

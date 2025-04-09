@@ -1405,7 +1405,7 @@ a:not(.btn):not(.badge):not(.btn):not([href]):not([tabindex]) { color: #3c4043; 
 
 .inspiro-slider .slide .slide-captions { position: relative; text-align: left; }
 
-.inspiro-slider .slide .slide-captions h1 { font-size: 80px; font-weight: 700; line-height: 80px; margin-bottom: 30px; color: #fff; }
+.inspiro-slider .slide .slide-captions h1 { font-size: 80px; font-weight: 700; line-height: 1.2; margin-bottom: 30px; color: #fff; }
 
 .inspiro-slider .slide .slide-captions h2 { font-size: 60px; font-weight: 700; line-height: 68px; margin-bottom: 30px; color: #fff; }
 

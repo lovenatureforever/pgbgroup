@@ -122,7 +122,7 @@
                         {
                             data: 'image',
                             render: (data, type, row) => {
-                                return '<img src="'+ '/upload/' + data +'" onerror="imgerr(this)" class="rounded" width="120" alt="dining image">';
+                                return '<img src="'+ data +'" onerror="imgerr(this)" class="rounded" width="120" alt="dining image">';
                             }
                         },
                         {data: 'title'},
