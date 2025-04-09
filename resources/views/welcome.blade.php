@@ -4,6 +4,10 @@
     Paragon Globe Berhad
 @endsection
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
+@endpush
+
 @section('content')
     <!-- Inspiro Slider -->
     <div id="slider" class="inspiro-slider slider-fullscreen dots-creative">
@@ -125,42 +129,213 @@
     <!-- end: Company Division -->
 
     <!-- Highlihts -->
-    <section class="">
-        <div class="container rounded-5 background-grey">
-            <div class="row">
-                <div class="col-lg-6 p-50 p-b-0 p-r-20">
-                    <img src="{{asset('images/h1.jpg')}}" class="img-fluid rounded-4 m-b-30" alt="building1">
-                    <div class="heading-text heading-line">
-                        <h4 class="">Key Highlights</h4>
-                        <p class="">
-                            We are committed to be the leading developer across the industrial and commercial sector by providing innovative,
-                            excellence and quality development that strive to exceed the expectation and meet the evolving needs of our
-                            customers,
-                            and thereby achieve the sustainability of returns which creating the long-term values for all stakeholders.
-                        </p>
-                        <a href="#" class="btn btn-primany btn-rounded btn-outline">Discover More</a>
-                    </div>
+    <section class="" id="milestone">
+        <div class="container">
+            <div class="container">
+                <div class="heading-text heading-section">
+                    <h2>KEY MILESTONES</h2>
                 </div>
-                <div class="col-lg-6 p-l-20 p-r-50 p-t-100">
-                    <div class="icon-box effect large fancy">
-                        <div class="icon"> <a href="#"><i class="fa fa-walking"></i></a> </div>
-                        <h3>Value Added</h3>
-                        <p>We believe that by delivering value-added products and services, we will be able to provide satisfaction to our customers and differentiate ourselves from our competitors.</p>
+            </div>
+            <div class="">
+                <div class="timeline-container">
+                    <!-- Timeline Frames Container -->
+                    <div class="timeline-frames-wrapper">
+                        <button class="nav-btn prev-btn" id="prevBtn">
+                            <span>
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                        </button>
+                        <button class="nav-btn next-btn" id="nextBtn">
+                            <span>
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </button>
+
+                        <div class="timeline-frames" id="timelineFrames">
+                            <div class="timeline-year">
+                                <div class="year-label">2017/18</div>
+                                <div class="timeline-frame top active" data-year="2017/18" data-index="0">
+                                    <div class="event top">
+                                        <img src="/images/logo.png" style="width: 130px;position: absolute;top: calc(50% - 257px);;z-index: 3;transform: translate(-50%, 0%);"></img>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content" style="top: calc(50% - 210px);">
+                                        <h5>Strategic Pivot</h5>
+                                        <p>Paragon Advanture Sdn Bhd acquired majority control</p>
+                                    </div>
+                                    <div class="frame-content" style="top: calc(50% - 140px);">
+                                        <h5>Rebranding</h5>
+                                        <p>Renamed as<br> Paragon Globe Berhad</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2019</div>
+                                <div class="timeline-frame bottom active" data-year="2019" data-index="1">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2019-1.png');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Pekan Sentral Phase 2</h5>
+                                        <p>Launched</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame top active" data-year="2019" data-index="2">
+                                    <div class="event top">
+                                        <div class="image-circle" style="background-image: url('/images/2019-2.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Pekan Sentral Phase 1</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2020</div>
+                                <div class="timeline-frame bottom active" data-year="2020" data-index="3">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2020.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Paragon Market Place</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2021</div>
+                                <div class="timeline-frame top active" data-year="2021" data-index="4">
+                                    <div class="event top">
+                                        <div class="image-circle" style="background-image: url('/images/2021.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Detached Factories (D3)</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2022</div>
+                                <div class="timeline-frame bottom active" data-year="2022" data-index="5">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2022.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Pekan Sentral Phase 2</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2023</div>
+                                <div class="timeline-frame top active" data-year="2023" data-index="6">
+                                    <div class="event top">
+                                        <div class="image-circle" style="background-image: url('/images/2023.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Desa 27 by PGB</h5>
+                                        <p>Launched</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2024</div>
+                                <div class="timeline-frame bottom active" data-year="2024" data-index="7">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2024-1.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Detached Factories (D1)</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame top active" data-year="2024" data-index="8">
+                                    <div class="event top">
+                                        <div class="image-circle" style="background-image: url('/images/2024-2.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Desa 100 by PGB</h5>
+                                        <p>Launched</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame bottom active" data-year="2024" data-index="9">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2024-3.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Pekan Sentral Phase 3<br> & Detached Factories (D2)</h5>
+                                        <p>Launched</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame top active" data-year="2024" data-index="10">
+                                    <div class="event top">
+                                        <div class="image-circle" style="background-image: url('/images/2024-4.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>PGB Hostel</h5>
+                                        <p>Launched</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-year">
+                                <div class="year-label">2025&Beyond</div>
+                                <div class="timeline-frame bottom active" data-year="2025" data-index="11">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2025-1.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Detached Factories (D4)</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame top active" data-year="2025" data-index="12">
+                                    <div class="event top">
+                                        <div class="image-circle" style="background-image: url('/images/2025-2.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Sepang Medical Centre</h5>
+                                        <p>Completed</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame bottom active" data-year="2025" data-index="13">
+                                    <div class="event bottom">
+                                        <div class="image-circle" style="background-image: url('/images/2025-3.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Calia Residences by PGB</h5>
+                                        <p>Launched</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-frame top active" data-year="2025" data-index="14">
+                                    <div class="event top">
+                                        <div class="image-circle" style="border-radius: 0;background-image: url('/images/2025-4.jpg');background-position: center;"></div>
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="frame-content">
+                                        <h5>Comming Soon</h5>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="icon-box effect large fancy">
-                        <div class="icon"> <a href="#"><i class="fa fa-lightbulb"></i></a> </div>
-                        <h3>Integration and Innovation</h3>
-                        <p>We hold ourselves to a strict moral and ethical code in our group, as laid down by our founder in building properties while seeking to innovate at the same time in building our properties to maximize the value of the product.</p>
+
+                    <!-- Pagination Dots will be dynamically generated -->
+                    <div class="timeline-pagination" id="timelinePagination">
                     </div>
-                    <div class="icon-box effect large fancy">
-                        <div class="icon"> <a href="#"><i class="fa fa-clock"></i></a> </div>
-                        <h3>Time</h3>
-                        <p>As we believe that time is of the essence, we strive to deliver products and services within a reasonable time frame to our customers.</p>
-                    </div>
-                    <div class="icon-box effect large fancy">
-                        <div class="icon"> <a href="#"><i class="fa fa-handshake"></i></a> </div>
-                        <h3>Confidence & Trust</h3>
-                        <p>As customer’s confidence and trust in our group is paramount to us, we seek to build and maintain a great relationship with them.</p>
                     </div>
                 </div>
             </div>
@@ -189,7 +364,7 @@
     </div> --}}
     <!-- end: Filter Menu -->
 
-    <!-- Content -->
+    <!-- Projects -->
     <section id="page-content" class="background-grey">
         <div class="container">
             <div class="heading-text heading-section">
@@ -200,11 +375,9 @@
             <nav class="grid-filter gf-outline" data-layout="#portfolio">
                 <ul>
                     <li class="active"><a href="#" data-category="*">Show All</a></li>
-                    <li><a href="#" data-category=".ct-branding">Branding</a></li>
-                    <li><a href="#" data-category=".ct-photography">Photography</a></li>
-                    <li><a href="#" data-category=".ct-marketing">Marketing</a></li>
-                    <li><a href="#" data-category=".ct-media">Media</a></li>
-                    <li><a href="#" data-category=".ct-webdesign">Web design</a></li>
+                    <li><a href="#" data-category=".ct-residential">Residential</a></li>
+                    <li><a href="#" data-category=".ct-industrial">Industrial</a></li>
+                    <li><a href="#" data-category=".ct-commercial">Commercial</a></li>
                 </ul>
                 <div class="grid-active-title">Show All</div>
             </nav>
@@ -212,141 +385,150 @@
             <!-- Portfolio -->
             <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
+                <div class="portfolio-item no-overlay ct-residential">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-slider">
                             <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-                                <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                                <a href="#"><img src="{{ asset('images/project1.jpg') }}" alt=""></a>
                                 <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
                             </div>
                         </div>
+                        <span class="status-tag completed">Completed</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Towel World</h3>
-                                <span>Graphics</span>
+                                <h3>Pekan Sentral Phase 1</h3>
+                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-photography ct-marketing ct-media rounded-4">
+                <div class="portfolio-item no-overlay img-zoom ct-industrial rounded-4">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project2.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag completed">Completed</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Paper Pouch</h3>
-                                <span>Branding / Graphics</span>
+                                <h3>Pekan Sentral Phase 2</h3>
+                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-Media">
+                <div class="portfolio-item no-overlay img-zoom ct-commercial">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project3.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag completed">Completed</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Let's Go Outside</h3>
-                                <span>Illustrations / Graphics</span>
+                                <h3>Detached Factories (D3)</h3>
+                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                <div class="portfolio-item no-overlay img-zoom ct-residential">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project4.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag completed">Completed</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Towel World</h3>
-                                <span>Graphics</span>
+                                <h3>Pekan Nenas Petrol Station and Drive-thru Restaurant</h3>
+                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
+                <div class="portfolio-item no-overlay img-zoom ct-industrial">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project5.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag ongoing">Ongoing</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Last Iceland Sunshine</h3>
-                                <span>Graphics</span>
+                                <h3>Detached Factories (D4)</h3>
+                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                <div class="portfolio-item no-overlay img-zoom ct-commercial">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project6.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag ongoing">Ongoing</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Towel World</h3>
-                                <span>Graphics</span>
+                                <h3>Sepang Medical Centre</h3>
+                                <span>Sepang, Selangor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-marketing ct-webdesign">
+                <div class="portfolio-item no-overlay ct-residential">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-slider">
                             <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-                                <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                                <a href="#"><img src="{{ asset('images/project7.jpg') }}" alt=""></a>
                                 <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
                             </div>
                         </div>
+                        <span class="status-tag ongoing">Ongoing</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Towel World</h3>
-                                <span>Graphics</span>
+                                <h3>Pekan Sentral Phase 3</h3>
+                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-photography ct-marketing ct-media">
+                <div class="portfolio-item no-overlay img-zoom ct-industrial">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project8.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag upcomming">Upcomming</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Luxury Wine</h3>
-                                <span>Graphics / Branding</span>
+                                <h3>Calia Residences by PGB</h3>
+                                <span>Danga Bay, Johor Bahru</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
+                <div class="portfolio-item no-overlay img-zoom ct-commercial">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('images/project9.jpg') }}" alt=""></a>
                         </div>
+                        <span class="status-tag future">Future</span>
                         <div class="portfolio-description">
                             <a href="portfolio-page-grid-gallery.html">
-                                <h3>Last Iceland Sunshine</h3>
-                                <span>Graphics</span>
+                                <h3>PGB Tech Park @ Nusajaya</h3>
+                                <span>Mukim Tanjung Kupang, Johor Bahru, Johor</span>
                             </a>
                         </div>
                     </div>
@@ -356,7 +538,7 @@
             <!-- end: Portfolio -->
         </div>
     </section>
-    <!-- end: Content -->
+    <!-- end: Projects -->
 
     <!-- Edwin -->
     <section class="p-t-350 p-b-150 background-image" style="background-image:url({{ asset('images/5.png') }});">
@@ -373,103 +555,12 @@
         </div>
     </section>
     <!-- end: Edwin -->
-
-    <!-- BLOG -->
-    <section class="content background-grey">
-        <div class="container">
-            <div class="heading-text heading-section text-center">
-                <h2>OUR LATEST BLOG</h2>
-                <span class="lead">Explore our latest insights and innovations in construction at PGB Group – Building Beyond Expectations.</span>
-            </div>
-            <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
-                <!-- Post item-->
-                <div class="post-item border">
-                    <div class="post-item-wrap rounded-4">
-                        <div class="post-image">
-                            <a href="#">
-                                <img alt="" src="{{ asset('images/11.jpg') }}">
-                            </a>
-                        </div>
-                        <div class="post-item-description">
-                            <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-                            <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33
-                                    Comments</a></span>
-                            <h2><a href="#">Standard post with a single image
-                                </a></h2>
-                            <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-                            <a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: Post item-->
-                <!-- Post item-->
-                <div class="post-item border">
-                    <div class="post-item-wrap rounded-4">
-                        <div class="post-image">
-                            <a href="#">
-                                <img alt="" src="{{ asset('images/11.jpg') }}">
-                            </a>
-                        </div>
-                        <div class="post-item-description">
-                            <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-                            <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33
-                                    Comments</a></span>
-                            <h2><a href="#">Standard post with a single image
-                                </a></h2>
-                            <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-                            <a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: Post item-->
-                <!-- Post item-->
-                <div class="post-item border">
-                    <div class="post-item-wrap rounded-4">
-                        <div class="post-image">
-                            <a href="#">
-                                <img alt="" src="{{ asset('images/11.jpg') }}">
-                            </a>
-                        </div>
-                        <div class="post-item-description">
-                            <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-                            <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33
-                                    Comments</a></span>
-                            <h2><a href="#">Standard post with a single image
-                                </a></h2>
-                            <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-                            <a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: Post item-->
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="#" class="btn btn-primany btn-rounded btn-outline">Load More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end: BLOG -->
-
-    <!-- ROADMAP -->
-    <section id="welcome" class="p-b-0">
-        <div class="">
-            <div class="heading-text heading-section text-center m-b-40 animate__animated animate__fadeInUp visible" data-animate="fadeInUp">
-                <h2>ROADMAP</h2>
-                <span class="lead">See our strategic journey toward excellence – PGB Group's Roadmap to Building Beyond Expectations.</span>
-            </div>
-            <div class="row animate__animated animate__fadeInUp visible" data-animate="fadeInUp">
-                <div class="col-lg-12 flex-center">
-                    <img class="img-fluid" src="{{ asset('images/roadmap.webp') }}" alt="Welcome to POLO">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end: ROADMAP -->
 @endsection
 
 @push('script')
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="{{asset('js/timeline-data.js')}}"></script>
+    <script src="{{asset('js/timeline.js')}}"></script>
     <script>
         var panel = $('.section');
         panel.click(function () {

@@ -150,3 +150,37 @@
     display: flex;
     justify-content: center;
 }
+
+
+.status-tag
+{
+    z-index: 1;
+    border-radius: 0 20px 0 20px;
+    top: 0px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    height: 38px;
+    line-height: 38px;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.14);
+    width: 96px;
+}
+
+.status-tag.ongoing {
+    background: #d6284b;
+}
+
+.status-tag.completed {
+    background: #00c0e9;
+}
+
+.status-tag.upcomming {
+    background: #ffc300;
+}
+
+.status-tag.future {
+    background: #2250fc;
+}
