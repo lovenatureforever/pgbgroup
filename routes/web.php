@@ -11,6 +11,8 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
+Route::get('/corporate-profile', [HomeController::class, 'corporate_profile'])->name('corporate-profile');
+Route::get('/leadership-team', [HomeController::class, 'leadership_team'])->name('leadership-team');
 
 Auth::routes();
 // auth()->routes();

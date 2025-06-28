@@ -375,10 +375,7 @@
                     </div>
                     <!-- end: portfolio item -->
                 @endforeach
-{{--
-
-
-
+                {{--
                 <!-- portfolio item -->
                 <div class="portfolio-item no-overlay ct-residential">
                     <div class="portfolio-item-wrap">
@@ -550,6 +547,62 @@
         </div>
     </section>
     <!-- end: Edwin -->
+
+    {{-- <section class="background-grey">
+        <div class="container">
+            <div class="row carousel-description-clients carousel-description-style ">
+                <div class="col-lg-4">
+                    <div class="description">
+                        <h2>Our Clients</h2> Aliquam enim enim, pharetra in sodales at, interdum sit amet dui. Nullam vulputate euis od urna non pharetra. Phasellus bland matt is ipsum, ac laoreet lorem lacinia et. interum sit amet dui.
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="carousel client-logos" data-items="4">
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/1.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/2.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/3.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/4.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/5.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/6.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/7.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/8.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/9.png">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="" src="images/clients/10.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
 @endsection
 
 @push('script')

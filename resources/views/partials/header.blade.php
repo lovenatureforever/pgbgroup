@@ -20,24 +20,26 @@
                 <div class="container">
                     <nav>
                         <ul>
-                            <li><a href="/">About Us</a></li>
-                            {{-- <li class="dropdown"><a href="#">About Us</a>
+                            <li class="dropdown"><a href="#">About Us</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/">Corporate Profile</a></li>
-                                    <li><a href="/">Corporate Structure</a></li>
-                                    <li><a href="/">Vision and Mission</a></li>
-                                    <li><a href="/">The Transformation Story</a></li>
-                                    <li><a href="/">Key Milestones</a></li>
-                                    <li><a href="/">Leadership Team</a></li>
-                                    <li><a href="/">Accolades</a></li>
+                                    <li class="dropdown-submenu"><a class="dropdown-menu-title-only" href="/corporate-profile">Corporate Profile</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/corporate-profile#transform-story">The Transformation Story</a></li>
+                                            <li><a href="/corporate-profile#corporate-structure">Corporate Structure</a></li>
+                                            <li><a href="/corporate-profile#vision-mission">Vision & Mission</a></li>
+                                            <li><a href="/corporate-profile#milestone">Key Milestone</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/leadership-team">Leadership Team</a></li>
+                                    <li><a href="/accolades">Accolades</a></li>
                                     <li class="dropdown-submenu"><span class="dropdown-menu-title-only">Media Center</span>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/">Press Releases</a></li>
-                                            <li><a href="/">News</a></li>
+                                            <li><a href="/media-press">Press Releases</a></li>
+                                            <li><a href="/media-news">News</a></li>
                                         </ul>
                                     </li>
                                 </ul>
-                            </li> --}}
+                            </li>
                             <li><a href="/">Our Businesses</a></li>
                             <li><a href="/">Investor Relations</a></li>
                             <li><a href="/">Sustainability</a></li>
