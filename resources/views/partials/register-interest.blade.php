@@ -55,7 +55,7 @@
             <div class="row mt-3 justify-content-center">
                 <div class="form-group col-md-8 mb-0">
                     <div class="form-group form-check my-3">
-                        <input type="checkbox" class="form-check-input" id="chk4" name="chk4">
+                        <input type="checkbox" class="form-check-input" id="chk4" name="chk4" required>
                         <label class="form-check-label" for="chk4">I hereby agree to receive future communication & newsletter from PGB.</label>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
             <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     <div class="form-group form-check my-3">
-                        <input type="checkbox" class="form-check-input" id="chk5" name="chk5">
-                        <label class="form-check-label" for="chk5">I have read and agreed with the Terms and Conditions, Privacy Policy and PDPA Consent Clause.</label>
+                        <input type="checkbox" class="form-check-input" id="chk5" name="chk5" required>
+                        <label class="form-check-label" for="chk5">I have read and agreed with the <a href="https://pgb.myinternetwifi.com/upload/68cc673d812d11758226237.pdf" target="_blank">Terms and Conditions</a>, <a href="https://pgb.myinternetwifi.com/upload/68cc7754bf8b41758230356.pdf" target="_blank">Privacy Policy and PDPA Consent Clause.</a></label>
                     </div>
                 </div>
             </div>
@@ -72,45 +72,45 @@
                 <button class="btn btn-outline col-md-8 mt-4" type="submit" id="form-submit"><i
                         class="fa fa-paper-plane"></i>&nbsp;SUBMIT</button>
             </div>
-        <script>
-            // Enable submit only when both checkboxes are checked, and show disabled status
-            document.addEventListener('DOMContentLoaded', function() {
-                var chk4 = document.getElementById('chk4');
-                var chk5 = document.getElementById('chk5');
-                var submitBtn = document.getElementById('form-submit');
-                function updateSubmitState() {
-                    var enabled = chk4.checked && chk5.checked;
-                    submitBtn.disabled = !enabled;
-                    if (!enabled) {
-                        submitBtn.classList.add('disabled');
-                        submitBtn.style.opacity = '0.6';
-                        submitBtn.style.cursor = 'not-allowed';
-                    } else {
-                        submitBtn.classList.remove('disabled');
-                        submitBtn.style.opacity = '';
-                        submitBtn.style.cursor = '';
+            <script>
+                // Enable submit only when both checkboxes are checked, and show disabled status
+                document.addEventListener('DOMContentLoaded', function() {
+                    var chk4 = document.getElementById('chk4');
+                    var chk5 = document.getElementById('chk5');
+                    var submitBtn = document.getElementById('form-submit');
+                    function updateSubmitState() {
+                        var enabled = chk4.checked && chk5.checked;
+                        submitBtn.disabled = !enabled;
+                        if (!enabled) {
+                            submitBtn.classList.add('disabled');
+                            submitBtn.style.opacity = '0.6';
+                            submitBtn.style.cursor = 'not-allowed';
+                        } else {
+                            submitBtn.classList.remove('disabled');
+                            submitBtn.style.opacity = '';
+                            submitBtn.style.cursor = '';
+                        }
                     }
-                }
-                chk4.addEventListener('change', updateSubmitState);
-                chk5.addEventListener('change', updateSubmitState);
-                updateSubmitState();
-            });
-            // Filter PROJECT NAME dropdown based on PROJECT TYPE selection
-            document.addEventListener('DOMContentLoaded', function() {
-                var typeDropdown = document.getElementById('projectTypeDropdown');
-                var nameDropdown = document.getElementById('projectNameDropdown');
-                function filterProjectNames() {
-                    var selectedType = typeDropdown.value;
-                    Array.from(nameDropdown.getElementsByTagName('optgroup')).forEach(function(group) {
-                        group.style.display = (selectedType === '' || group.getAttribute('data-type') === selectedType) ? '' : 'none';
-                    });
-                    // Reset project selection when type changes
-                    nameDropdown.value = '';
-                }
-                typeDropdown.addEventListener('change', filterProjectNames);
-                filterProjectNames();
-            });
-        </script>
+                    chk4.addEventListener('change', updateSubmitState);
+                    chk5.addEventListener('change', updateSubmitState);
+                    updateSubmitState();
+                });
+                // Filter PROJECT NAME dropdown based on PROJECT TYPE selection
+                document.addEventListener('DOMContentLoaded', function() {
+                    var typeDropdown = document.getElementById('projectTypeDropdown');
+                    var nameDropdown = document.getElementById('projectNameDropdown');
+                    function filterProjectNames() {
+                        var selectedType = typeDropdown.value;
+                        Array.from(nameDropdown.getElementsByTagName('optgroup')).forEach(function(group) {
+                            group.style.display = (selectedType === '' || group.getAttribute('data-type') === selectedType) ? '' : 'none';
+                        });
+                        // Reset project selection when type changes
+                        nameDropdown.value = '';
+                    }
+                    typeDropdown.addEventListener('change', filterProjectNames);
+                    filterProjectNames();
+                });
+            </script>
         </form>
     </div>
 </div>

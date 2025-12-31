@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegisterInterestMail;
 use App\Models\Slide;
 use App\Models\Project;
 use App\Models\Blog;
@@ -139,6 +141,13 @@ class HomeController extends Controller
             'email' => $validated['email'],
         ];
         \App\Models\RegisterInterest::create($data);
+        // Send notification email to enquiry address
+        try {
+            Mail::to('enquiry@pgbgroup.com.my')->send(new RegisterInterestMail($data));
+        } catch (\Exception $e) {
+            \Log::error('RegisterInterest email failed: ' . $e->getMessage());
+        }
+
         return redirect()->route('contact_us.registration')->with('success', 'Thank you for registering your interest!');
     }
 

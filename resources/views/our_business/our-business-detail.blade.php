@@ -78,7 +78,7 @@
                                 foreach ($buildingInfo as $info) {
                                     $val = $info['value'] ?? '';
                                     $key = strtolower($info['key'] ?? '');
-                                    
+
                                     if ($key === 'e-brochure' && is_string($val)) {
                                         $brochure = $val;
                                     } elseif ($key === 'website' && is_string($val)) {
@@ -112,7 +112,7 @@
                                             @endif
                                             @if($website)
                                                 <a href="{{ $website }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success rounded-pill mb-1">
-                                                    <i class="fas fa-globe me-1"></i> Project Website
+                                                    <i class="fas fa-globe me-1"></i> Visit Website
                                                 </a>
                                             @endif
                                         </div>
@@ -124,10 +124,6 @@
                         @endif
                         </tbody>
                     </table>
-                    <div class="d-flex align-items-center gap-4">
-                        <a href="#" class="btn btn-primany">E-Brochure</a>
-                        <a href="#" class="btn btn-primany">Visit Website</a>
-                    </div>
                 </div>
             </div>
             <div class="row mt-8">
