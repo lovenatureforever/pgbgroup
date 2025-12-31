@@ -36,10 +36,21 @@
             <form action="{{route('admin.projects.store')}}" method="post" class="form-horizontal" data-parsley-validate="true" name="review-update-form" novalidate="">
                 @csrf
 
+
                 <div class="form-group row mb-3">
                     <label class="col-lg-2 col-form-label form-label" for="title">Title * :</label>
                     <div class="col-lg-8">
                         <input class="form-control" type="text" id="titile" name="title" placeholder="Required" data-parsley-required="true">
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label class="col-lg-2 col-form-label form-label" for="type">Type * :</label>
+                    <div class="col-lg-8">
+                        <select class="form-control" id="type" name="type" data-parsley-required="true">
+                            <option value="property" selected>Property</option>
+                            <option value="construction">Construction</option>
+                        </select>
                     </div>
                 </div>
 
@@ -67,9 +78,36 @@
                 </div>
 
                 <div class="form-group row mb-3">
+                    <label class="col-lg-2 col-form-label form-label" for="office">Office :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" id="office" name="office" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
                     <label class="col-lg-2 col-form-label form-label" for="description">Description :</label>
                     <div class="col-lg-8">
                         <input class="form-control" type="text" id="description" name="description" placeholder="" data-parsley-required="true">
+                    </div>
+                </div>
+
+                <!-- Custom Fields Table -->
+                <div class="form-group row mb-3">
+                    <label class="col-lg-2 col-form-label form-label">Custom Fields:</label>
+                    <div class="col-lg-8">
+                        <table class="table table-bordered" id="custom-fields-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:40%">Field</th>
+                                    <th style="width:40%">Value</th>
+                                    <th style="width:20%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows go here -->
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-success mb-3" id="add-field-btn">Add Field</button>
                     </div>
                 </div>
 
@@ -137,6 +175,21 @@
                 }
                 $('form').find('input[name="images[]"][value="' + name + '"]').remove();
             }
+        });
+
+        // Custom Fields Table Logic
+        $(document).ready(function() {
+            $('#add-field-btn').click(function() {
+                let row = `<tr>
+                    <td><input type="text" name="custom_fields[][key]" class="form-control" placeholder="Field name"></td>
+                    <td><input type="text" name="custom_fields[][value]" class="form-control" placeholder="Value"></td>
+                    <td><button type="button" class="btn btn-danger btn-sm remove-field-btn">Delete</button></td>
+                </tr>`;
+                $('#custom-fields-table tbody').append(row);
+            });
+            $('#custom-fields-table').on('click', '.remove-field-btn', function() {
+                $(this).closest('tr').remove();
+            });
         });
 
     </script>

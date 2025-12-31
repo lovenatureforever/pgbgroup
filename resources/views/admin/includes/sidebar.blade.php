@@ -1,3 +1,9 @@
+			<div class="menu-item">
+				<a href="{{ route('admin.press-releases.index') }}" class="menu-link">
+					<div class="menu-icon"><i class="fa fa-newspaper"></i></div>
+					<div class="menu-text">Press Releases</div>
+				</a>
+			</div>
 @php
 	$appSidebarClass = (!empty($appSidebarTransparent)) ? 'app-sidebar-transparent' : '';
 @endphp

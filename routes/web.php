@@ -1,4 +1,6 @@
+
 <?php
+// ...existing code...
 
 use Illuminate\Support\Facades\Route;
 
@@ -9,16 +11,103 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OurBusinessController;
+
+// AJAX endpoints for sustainability sections
+Route::get('/ajax/green-initiatives', [\App\Http\Controllers\HomeController::class, 'greenInitiativesAjax']);
+Route::get('/ajax/community-impact', [\App\Http\Controllers\HomeController::class, 'communityImpactAjax']);
+Route::get('/ajax/employee-engagement', [\App\Http\Controllers\HomeController::class, 'employeeEngagementAjax']);
+
+// Client-side Sustainability pages
+Route::get('/green-initiatives', [HomeController::class, 'green_initiatives'])->name('green-initiatives');
+Route::get('/green-initiatives-detail/{id}', [HomeController::class, 'green_initiatives_detail'])->name('green-initiatives-detail');
+Route::get('/community-impact', [HomeController::class, 'community_impact'])->name('community-impact');
+Route::get('/community-impact-detail/{id}', [HomeController::class, 'community_impact_detail'])->name('community-impact-detail');
+Route::get('/employee-engagement', [HomeController::class, 'employee_engagement'])->name('employee-engagement');
+Route::get('/employee-engagement-detail/{id}', [HomeController::class, 'employee_engagement_detail'])->name('employee-engagement-detail');
 
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
+Route::get('/media-press', [HomeController::class, 'media_press'])->name('media-press');
+Route::get('/media-news', [HomeController::class, 'media_news'])->name('media-news');
+Route::get('/news-with-images', [HomeController::class, 'newsWithImages']);
+Route::get('/accolades', [HomeController::class, 'accolades'])->name('accolades');
+Route::get('/awards', [HomeController::class, 'awards'])->name('awards');
+Route::get('/awards-with-images', [\App\Http\Controllers\HomeController::class, 'awardsWithImages']);
+
+Route::get('/our-businesses', [HomeController::class, 'our_businesses'])->name('our-businesses');
+Route::get('/our-businesses-detail', [HomeController::class, 'our_businesses_detail'])->name('our-businesses-detail');
+Route::get('/our-businesses-detail/{id}', [HomeController::class, 'our_businesses_detail'])->name('our-businesses-detail');
+
+Route::get('/contact-information', [HomeController::class, 'contact_information'])->name('contact_us.contact-information');
+Route::get('/career', [HomeController::class, 'career'])->name('contact_us.career');
+Route::get('/registration', [HomeController::class, 'registration'])->name('contact_us.registration');
+
+Route::get('/corporate-governance', [HomeController::class, 'corporate_governance'])->name('corporate-governance');
+Route::get('/shareholders-documents', [HomeController::class, 'shareholders_documents'])->name('shareholders-documents');
+Route::get('/documents/{type}', [HomeController::class, 'documents_by_type'])->name('documents-by-type');
+Route::get('/bursa-announcements', [HomeController::class, 'bursa_announcements'])->name('bursa-announcements');
+Route::get('/corporate-information', [HomeController::class, 'corporate_information'])->name('corporate-information');
+
+Route::get('/sustainability-journey', [HomeController::class, 'sustainability_journey'])->name('sustainability-journey');
+Route::get('/sustainability/performance-highlight-detail', [HomeController::class, 'performance_highlight_detail'])->name('performance-highlight-detail');
+Route::get('/sustainability/sustainability-governance-detail', [HomeController::class, 'sustainability_governance_detail'])->name('sustainability-governance-detail');
+Route::get('/green-initiatives', [HomeController::class, 'green_initiatives'])->name('green-initiatives');
+Route::get('/community-impact', [HomeController::class, 'community_impact'])->name('community-impact');
+Route::get('/community-impact-detail', [HomeController::class, 'community_impact_detail'])->name('community-impact-detail');
+Route::get('/employee-engagement', [HomeController::class, 'employee_engagement'])->name('employee-engagement');
+
 Route::get('/corporate-profile', [HomeController::class, 'corporate_profile'])->name('corporate-profile');
 Route::get('/leadership-team', [HomeController::class, 'leadership_team'])->name('leadership-team');
+
+Route::get('/our-businesses/load-more', [HomeController::class, 'our_businesses_load_more'])->name('our_businesses.load_more');
+
+Route::post('/register-interest', [HomeController::class, 'saveRegisterInterest'])->name('saveRegisterInterest');
+
+Route::get('/news/{id}', [HomeController::class, 'newsDetail'])->name('news.detail');
 
 Auth::routes();
 // auth()->routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::group(['prefix'=> 'admin', 'as'=> 'admin.'], function () {
+        // Green Initiatives, Community Impact, Employee Engagement Management
+    Route::resource('green_initiatives', App\Http\Controllers\Admin\GreenInitiativeController::class);
+    Route::resource('community_impacts', App\Http\Controllers\Admin\CommunityImpactController::class);
+    Route::resource('employee_engagements', App\Http\Controllers\Admin\EmployeeEngagementController::class);
+    // Image upload for Dropzone (news, etc)
+    Route::post('images/upload/{type}/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'upload'])->name('images.upload');
+    // News Management
+    Route::resource('news', \App\Http\Controllers\Admin\NewsController::class);
+    Route::get('news/all', [\App\Http\Controllers\Admin\NewsController::class, 'apiIndex'])->name('news.api-index');
+    // Award Management
+    Route::resource('awards', \App\Http\Controllers\AwardController::class);
+    // Press Release CRUD
+    Route::resource('press-releases', \App\Http\Controllers\PressReleaseController::class);
+
+    // Document Management
+    Route::resource('documents', \App\Http\Controllers\Admin\DocumentController::class);
+
+    // Performance Highlights Management
+    Route::resource('performance-highlights', \App\Http\Controllers\Admin\PerformanceHighlightController::class);
+
+    // Sustainability Overview Management
+    Route::resource('sustainability-overviews', \App\Http\Controllers\Admin\SustainabilityOverviewController::class);
+
+    // Sustainability Goals Management
+    Route::resource('sustainability-goals', \App\Http\Controllers\Admin\SustainabilityGoalController::class);
+
+    // Sustainability Governance Management
+    Route::resource('sustainability-governances', \App\Http\Controllers\Admin\SustainabilityGovernanceController::class);
+
+    // Our Commitments Management
+    Route::resource('our-commitments', \App\Http\Controllers\Admin\OurCommitmentController::class);
+
+    // Sustainability Reports Management
+    Route::resource('sustainability-reports', \App\Http\Controllers\Admin\SustainabilityReportController::class);
+
+    // Registered Interest admin page
+    Route::get('/register-interest', [AdminHomeController::class, 'registerInterestIndex'])->name('register-interest.index');
+
         Route::post('/upload', [FileController::class, 'apiUploadFile'])->name('upload');
         Route::get('/', [AdminHomeController::class,'index'])->name('dashboard');
 

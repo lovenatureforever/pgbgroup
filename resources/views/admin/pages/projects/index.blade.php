@@ -157,15 +157,15 @@
                         {
                             data: 'is_published',
                             render: (data, type, row) => {
-                                const badgeClass = data ? 'bg-info' : 'bg-danger';
-                                const statusText = data ? 'Published' : 'Draft';
+                                const badgeClass = data == "1" ? 'bg-info' : 'bg-danger';
+                                const statusText = data == "1" ? 'Published' : 'Draft';
                                 return `<span class="badge ${badgeClass} fs-5">${statusText}</span>`;
                             }
                         },
                         {
                             data: null,
                             render: (data) => {
-                                return `<button class="btn btn-primary btn-sm ms-1" onclick="changePublishStatus(${data.id}, ${data.is_published})"> ${data.is_published ? 'Archive' : 'Publish'} </button><a href="/admin/projects/${data.id}/edit" class="btn btn-success btn-sm ms-1">Edit</a> <button class="btn btn-danger btn-sm ms-1" onclick="onDeleteBtn(${data.id})">Delete</button>`;
+                                return `<button class="btn btn-primary btn-sm ms-1" onclick="changePublishStatus(${data.id}, ${data.is_published})"> ${data.is_published == "1" ? 'Archive' : 'Publish'} </button><a href="/admin/projects/${data.id}/edit" class="btn btn-success btn-sm ms-1">Edit</a> <button class="btn btn-danger btn-sm ms-1" onclick="onDeleteBtn(${data.id})">Delete</button>`;
                             }
                         },
                     ]

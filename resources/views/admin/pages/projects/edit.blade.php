@@ -47,6 +47,21 @@
                     </div>
                 </div>
 
+                   {{-- Type --}}
+                   <div class="form-group row mb-3">
+                       <label class="col-lg-2 col-form-label form-label" for="type">Type * :</label>
+                       <div class="col-lg-8">
+                           <select class="form-control" id="type" name="type" data-parsley-required="true">
+                               @foreach (["property", "construction"] as $type)
+                                   <option value="{{ $type }}"
+                                       {{ old('type', $project->type) === $type ? 'selected' : '' }}>
+                                       {{ ucfirst($type) }}
+                                   </option>
+                               @endforeach
+                           </select>
+                       </div>
+                   </div>
+
                 {{-- Category --}}
                 <div class="form-group row mb-3">
                     <label class="col-lg-2 col-form-label form-label" for="category">Category * :</label>
@@ -77,12 +92,41 @@
                     </div>
                 </div>
 
+                {{-- Office --}}
+                <div class="form-group row mb-3">
+                    <label class="col-lg-2 col-form-label form-label" for="office">Office :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" id="office" name="office"
+                               value="{{ old('office', $project->office) }}">
+                    </div>
+                </div>
+
                 {{-- Description --}}
                 <div class="form-group row mb-3">
                     <label class="col-lg-2 col-form-label form-label" for="description">Description :</label>
                     <div class="col-lg-8">
                         <input class="form-control" type="text" id="description" name="description"
                                value="{{ old('description', $project->description) }}">
+                    </div>
+                </div>
+
+                {{-- Custom Fields Table --}}
+                <div class="form-group row mb-3">
+                    <label class="col-lg-2 col-form-label form-label">Custom Fields:</label>
+                    <div class="col-lg-8">
+                        <table class="table table-bordered" id="custom-fields-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:40%">Field</th>
+                                    <th style="width:40%">Value</th>
+                                    <th style="width:20%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic rows go here -->
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-success mb-3" id="add-field-btn">Add Field</button>
                     </div>
                 </div>
 
@@ -123,6 +167,41 @@
 <script src="/assets/js/bootstrap_4.6.0.bundle.js"></script>
 <script src="/assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js"></script>
 <script>
+
+    // Custom Fields Table Logic for Edit
+    function addCustomFieldRow(key, value) {
+        let row = `<tr>
+            <td><input type="text" name="custom_fields[][key]" class="form-control" placeholder="Field name" value="${key ?? ''}"></td>
+            <td><input type="text" name="custom_fields[][value]" class="form-control" placeholder="Value" value="${value ?? ''}"></td>
+            <td><button type="button" class="btn btn-danger btn-sm remove-field-btn">Delete</button></td>
+        </tr>`;
+        $('#custom-fields-table tbody').append(row);
+    }
+
+    $(document).ready(function() {
+        // Add field button
+        $('#add-field-btn').click(function() {
+            addCustomFieldRow('', '');
+        });
+        // Remove field button
+        $('#custom-fields-table').on('click', '.remove-field-btn', function() {
+            $(this).closest('tr').remove();
+        });
+
+        // Parse and populate existing custom fields from information JSON
+        let infoJson = @json($project->information);
+        if (infoJson) {
+            let fields = [];
+            try {
+                fields = JSON.parse(infoJson);
+            } catch (e) {}
+            if (Array.isArray(fields)) {
+                fields.forEach(function(item) {
+                    addCustomFieldRow(item.key, item.value);
+                });
+            }
+        }
+    });
     Dropzone.autoDiscover = false;
     let uploadedDocumentMap = {};
     let myDropzone = new Dropzone("#dropzone",{
@@ -154,14 +233,15 @@
         }
     });
 
+
     @foreach($project->images as $image)
         @php
-            $tmp = explode("/", $image->url);
-            $n = $tmp[count($tmp)-1];
+            $filePath = public_path($image->url);
+            $fileSize = file_exists($filePath) ? filesize($filePath) : 0;
         @endphp
 
         // Create the mock file:
-        var mockFile = { name: "{{ $n }}", size: 12345 };
+        var mockFile = { name: "{{ $image->url }}", size: "{{ $fileSize }}" };
 
         // Call the default addedfile event handler
         myDropzone.emit("addedfile", mockFile);
@@ -169,8 +249,6 @@
         myDropzone.emit("complete", mockFile);
         // And optionally show the thumbnail of the file:
         myDropzone.emit("thumbnail", mockFile, "{{ $image->url }}");
-
-        {{--$('form').append('<input type="hidden" name="images[]" value="{{ $n }}">');--}}
     @endforeach
 
 </script>

@@ -14,7 +14,7 @@ class FileController extends Controller
 
         $request->validate([
             'file' => 'required|array',
-            'file.*' => 'file|mimes:jpg,jpeg,png,gif,webp,pdf,docx|max:2048',
+            'file.*' => 'file|mimes:jpg,jpeg,png,gif,webp,pdf,docx|max:204800',
         ]);
 
         $names = [];

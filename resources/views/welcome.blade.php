@@ -6,6 +6,77 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
+    <style>
+        /* Mobile section styles */
+        .section-mobile {
+            position: relative;
+            border-radius: 50%;
+            width: 100%;
+            padding-top: 100%; /* 1:1 aspect ratio */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section-mobile-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.45);
+            z-index: 1;
+        }
+        .section-mobile {
+            position: relative;
+            border-radius: 2rem;
+            width: 100%;
+            padding-top: 60%; /* 5:3 aspect ratio for rounded rectangle */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section-mobile-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 2rem;
+            background: rgba(0,0,0,0.45);
+            z-index: 1;
+        }
+        .section-mobile-content {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            width: 80%;
+        }
+        .section-mobile-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        .section-mobile-desc {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 1.2rem;
+        }
+        .section-mobile-btn {
+            font-size: 0.95rem;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+        }
+        .section-mobile-btn:hover {
+            background: #0056b3;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -37,14 +108,12 @@
                 <div class="col-lg-5 m-b-60">
                     <img src="{{asset('images/img1.jpg')}}" class="img-fluid rounded-4" alt="building1">
                 </div>
-                <div class="col-lg-6 offset-1 m-t-40">
-                    <h4>About us</h4>
-                    <h2>Building Excellence.</h2>
-                    <h2>Paragon of Sustainability.</h2>
+                <div class="col-lg-6 offset-1">
                     <p class="lead">
-                        Paragon Globe Berhad [194801000095(1713-A)] is a public listed company on main board of Bursa Malaysia with diversified interest in property development, construction, and investments.
+                        At <b>Paragon Globe Berhad [194801000095(1713-A)] ("PGB")</b>, we don't just build properties, we build legacies.
+                        <br>Since our transformation in 2017, we have evolved from a trading company to a leading property developer in Malaysia, driven by a vision for sustainable growth and a commitment to excellence.<br><br>
+                        We create spaces that empower communities and businesses, enhance lifestyles, and contribute to a greener future.&nbsp;&nbsp;Our diverse portfolio spans industrial parks, commercial hubs, residential developments, and essential infrastructure like healthcare facilities. With every project, we strive to exceed expectations and deliver lasting value for our stakeholders.
                     </p>
-                    <a href="#" class="btn btn-dark btn-outline btn-roundeded">Discover More</a>
                 </div>
                 <!-- end features box -->
             </div>
@@ -57,41 +126,73 @@
         <div class="container">
             <div class="heading-text heading-section text-center">
                 {{-- <h2>Company Division</h2> --}}
-                <h2>COMPANY DIVISION</h2>
+                <h2>OUR BUSINESSES</h2>
             </div>
-            <div class="row team-members team-members-shadow m-b-40">
+            <div class="row team-members team-members-shadow m-b-40 d-none d-lg-block">
                 <div class="accordion">
                     <div class="section is-open" style="background-image:url('{{ asset("images/p1.jpg") }}')">
                         <div class="bg-overlay" data-style="10"></div>
-                        <div class="section-title">Property</div>
+                        <div class="section-title">Property Development</div>
                         <p id="text-rotator" class="lead">
-                            Since PGB ventured into property development business, the Company has undertaken various property development projects.
-                            On 13 January 2020, PGB was reclassified from the Industrial Products and Services sector to the Property sector on
-                            Bursa Malaysia.
+                            Develops innovative industrial, commercial, and residential projects that shape communities, empower businesses, and promote sustainable living—aligned with our overall sustainability objectives.
                         </p>
                         <a href="#" class="btn btn-primany">Discover More</a>
                     </div>
                     <div class="section" style="background-image:url('{{ asset("images/p2.jpg") }}')">
                         <div class="bg-overlay" data-style="10"></div>
-                        <div class="section-title">Constructions</div>
+                        <div class="section-title">Construction</div>
                         <p id="text-rotator" class="lead">
-                            Since PGB ventured into property development business, the Company has undertaken various property development projects.
-                            On 13 January 2020, PGB was reclassified from the Industrial Products and Services sector to the Property sector on
-                            Bursa Malaysia.
+                            Transforms visions into reality with precision and efficiency, delivering durable, high-quality projects from groundbreaking to completion—creating lasting value for communities and stakeholders.
                         </p>
                         <a href="#" class="btn btn-primany">Discover More</a>
                     </div>
                     <div class="section" style="background-image:url('{{ asset("images/p3.jpg") }}')">
                         <div class="bg-overlay" data-style="10"></div>
-                        <div class="section-title">Investment</div>
+                        <div class="section-title">Investments</div>
                         <p id="text-rotator" class="lead">
-                            Since PGB ventured into property development business, the Company has undertaken various property development projects.
-                            On 13 January 2020, PGB was reclassified from the Industrial Products and Services sector to the Property sector on
-                            Bursa Malaysia.
+                            Focuses on land banking, asset management, healthcare development, and joint ventures—enhancing land value and leases to deliver resilient performance, sustainable growth, and lasting stakeholder value.
                         </p>
                         <a href="#" class="btn btn-primany">Discover More</a>
                     </div>
                 </div>
+            </div>
+            <div class="row m-b-40 d-block d-lg-none">
+                    <div class="col-12 mb-3">
+                        <div class="section-mobile" style="background-image:url('{{ asset("images/p1.jpg") }}')">
+                            <div class="section-mobile-bg"></div>
+                            <div class="section-mobile-content">
+                                <div class="section-mobile-title">Property Development</div>
+                                <div class="section-mobile-desc">
+                                    Develops innovative industrial, commercial, and residential projects that shape communities, empower businesses, and promote sustainable living—aligned with our overall sustainability objectives.
+                                </div>
+                                <a href="#" class="btn btn-primany section-mobile-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="section-mobile" style="background-image:url('{{ asset("images/p2.jpg") }}')">
+                            <div class="section-mobile-bg"></div>
+                            <div class="section-mobile-content">
+                                <div class="section-mobile-title">Construction</div>
+                                <div class="section-mobile-desc">
+                                    Transforms visions into reality with precision and efficiency, delivering durable, high-quality projects from groundbreaking to completion—creating lasting value for communities and stakeholders.
+                                </div>
+                                <a href="#" class="btn btn-primany section-mobile-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="section-mobile" style="background-image:url('{{ asset("images/p3.jpg") }}')">
+                            <div class="section-mobile-bg"></div>
+                            <div class="section-mobile-content">
+                                <div class="section-mobile-title">Investments</div>
+                                <div class="section-mobile-desc">
+                                    Focuses on land banking, asset management, healthcare development, and joint ventures—enhancing land value and leases to deliver resilient performance, sustainable growth, and lasting stakeholder value.
+                                </div>
+                                <a href="#" class="btn btn-primany section-mobile-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -301,10 +402,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Pagination Dots will be dynamically generated -->
-                    <div class="timeline-pagination" id="timelinePagination">
-                    </div>
                     </div>
                 </div>
             </div>
@@ -312,232 +409,16 @@
     </section>
     <!-- end: Highlihts -->
 
-    <!-- Filter Menu -->
-    {{-- <div class="page-menu menu-outline style-1">
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="portfolio-3.html">No space</a></li>
-                    <li><a href="portfolio-3-space.html">With space</a></li>
-                    <li class="active"><a href="portfolio-slider-3-title.html">Title</a></li>
-                    <li><a href="portfolio-3-title-desc.html">Title & Description</a></li>
-                    <li><a href="portfolio-3-shadow.html">Shadow</a></li>
-                    <li><a href="portfolio-3-shadow-outline.html">Outline</a></li>
-                    <li><a href="portfolio-3-grey-bg.html">Grey background</a></li>
-                </ul>
-            </nav>
-            <div id="pageMenu-trigger">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </div> --}}
-    <!-- end: Filter Menu -->
-
-    <!-- Projects -->
-    <section id="page-content" class="background-grey">
-        <div class="container">
-            <div class="heading-text heading-section">
-                <h2>OUR LATEST PROJECTS</h2>
-                <span class="lead">Discover our latest projects that showcase innovation, precision, and excellence in every detail – PGB Group, Building Beyond Expectations.</span>
-            </div>
-            <!-- Portfolio Filter -->
-            <nav class="grid-filter gf-outline" data-layout="#portfolio">
-                <ul>
-                    <li class="active"><a href="#" data-category="*">Show All</a></li>
-                    <li><a href="#" data-category=".ct-residential">Residential</a></li>
-                    <li><a href="#" data-category=".ct-industrial">Industrial</a></li>
-                    <li><a href="#" data-category=".ct-commercial">Commercial</a></li>
-                </ul>
-                <div class="grid-active-title">Show All</div>
-            </nav>
-            <!-- end: Portfolio Filter -->
-            <!-- Portfolio -->
-            <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
-                @foreach ($projects as $project)
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay ct-{{ $project->category }}">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-slider">
-                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-                                    @foreach ($project->images as $image)
-                                    <a href="#"><img src="{{ $image->url }}" alt=""></a>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <span class="status-tag {{$project->status}}">{{ ucfirst($project->status) }}</span>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>{{ $project->title }}</h3>
-                                    <span>{{ $project->description }}</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                @endforeach
-                {{--
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay ct-residential">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-slider">
-                            <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-                                <a href="#"><img src="{{ asset('images/project1.jpg') }}" alt=""></a>
-                                <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
-                            </div>
-                        </div>
-                        <span class="status-tag completed">Completed</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Pekan Sentral Phase 1</h3>
-                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-industrial rounded-4">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project2.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag completed">Completed</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Pekan Sentral Phase 2</h3>
-                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-commercial">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project3.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag completed">Completed</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Detached Factories (D3)</h3>
-                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-residential">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project4.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag completed">Completed</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Pekan Nenas Petrol Station and Drive-thru Restaurant</h3>
-                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-industrial">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project5.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag ongoing">Ongoing</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Detached Factories (D4)</h3>
-                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-commercial">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project6.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag ongoing">Ongoing</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Sepang Medical Centre</h3>
-                                <span>Sepang, Selangor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay ct-residential">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-slider">
-                            <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-                                <a href="#"><img src="{{ asset('images/project7.jpg') }}" alt=""></a>
-                                <a href="#"><img src="{{ asset('images/70.jpg') }}" alt=""></a>
-                            </div>
-                        </div>
-                        <span class="status-tag ongoing">Ongoing</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Pekan Sentral Phase 3</h3>
-                                <span>Pekan Nenas Industrial Park, Pekan Nenas, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-industrial">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project8.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag upcomming">Upcomming</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>Calia Residences by PGB</h3>
-                                <span>Danga Bay, Johor Bahru</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-                <!-- portfolio item -->
-                <div class="portfolio-item no-overlay img-zoom ct-commercial">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{ asset('images/project9.jpg') }}" alt=""></a>
-                        </div>
-                        <span class="status-tag future">Future</span>
-                        <div class="portfolio-description">
-                            <a href="portfolio-page-grid-gallery.html">
-                                <h3>PGB Tech Park @ Nusajaya</h3>
-                                <span>Mukim Tanjung Kupang, Johor Bahru, Johor</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-            </div>
-            <!-- end: Portfolio -->
-        </div> --}}
-    </section>
-    <!-- end: Projects -->
+    @include('partials.properties')
 
     <!-- Edwin -->
-    <section class="p-t-350 p-b-150 background-image" style="background-image:url({{ asset('images/5.png') }});">
+    <section class="p-t-150 p-b-150 background-image img-fluid">
         <div class="container">
-
-            <div class="row">
-                <div class="col-lg-7" data-animate="fadeIn">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center">
+                    <img src="{{ asset('images/5.jpg') }}" class="img-fluid rounded-2">
+                </div>
+                <div class="col-lg-6" data-animate="fadeIn">
                     <div class="blockquote background-light-50">
                         <p class="h3">We take pride in being an innovative market leader, with good corporate ethics and culture.</p>
                         <small>by <cite>Dato′ Sri Edwin Tan Pei Seng</cite> (Executive Chairman)</small>
@@ -547,67 +428,10 @@
         </div>
     </section>
     <!-- end: Edwin -->
-
-    {{-- <section class="background-grey">
-        <div class="container">
-            <div class="row carousel-description-clients carousel-description-style ">
-                <div class="col-lg-4">
-                    <div class="description">
-                        <h2>Our Clients</h2> Aliquam enim enim, pharetra in sodales at, interdum sit amet dui. Nullam vulputate euis od urna non pharetra. Phasellus bland matt is ipsum, ac laoreet lorem lacinia et. interum sit amet dui.
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="carousel client-logos" data-items="4">
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/1.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/2.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/3.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/4.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/5.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/6.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/7.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/8.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/9.png">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#"><img alt="" src="images/clients/10.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 @endsection
 
 @push('script')
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-    <script src="{{asset('js/timeline-data.js')}}"></script>
     <script src="{{asset('js/timeline.js')}}"></script>
     <script>
         var panel = $('.section');

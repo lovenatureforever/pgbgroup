@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Storage;
 
 class Project extends Model
+
+
 {
     protected $fillable = [
-        'title', 'description', 'slug', 'is_published', 'category', 'status'
+        'title', 'description', 'information', 'slug', 'is_published', 'category', 'status', 'type', 'office'
     ];
-
+    public function registerInterests()
+    {
+        return $this->hasMany(\App\Models\RegisterInterest::class);
+    }
     /**
      * Get all the project's images.
      */

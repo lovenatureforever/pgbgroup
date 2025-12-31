@@ -79,7 +79,7 @@
 
                     <div class="col-lg-6">
                         <label class="col-form-label form-label" for="position">Position :</label>
-                        <input class="form-control" type="number" id="position" name="position" value="{{ old('position', $slide->position) }}" placeholder="Optional">
+                        <input class="form-control" type="number" id="position" name="position" value="{{ old('position', $slide->position)}}" placeholder="Optional">
                     </div>
                 </div>
 

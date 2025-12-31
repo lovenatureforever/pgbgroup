@@ -34,19 +34,36 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'type' => 'required|in:property,construction',
             'description' => 'nullable|string',
             'category' => 'nullable|string|max:50',
             'status' => 'nullable|string|max:50',
+            'office' => 'nullable|string|max:255',
             'images' => 'required|array|min:1|max:20',
             'images.*' => 'required|string',
         ]);
 
+        $customFieldsInput = $request->input('custom_fields', []);
+        $customFieldsArr = [];
+        $count = is_array($customFieldsInput) ? count($customFieldsInput) : 0;
+        for ($i = 0; $i < $count - 1; $i += 2) {
+            $key = isset($customFieldsInput[$i]['key']) ? $customFieldsInput[$i]['key'] : null;
+            $value = isset($customFieldsInput[$i+1]['value']) ? $customFieldsInput[$i+1]['value'] : null;
+            if (($key !== null && $key !== '') || ($value !== null && $value !== '')) {
+                $customFieldsArr[] = ['key' => $key, 'value' => $value];
+            }
+        }
+        $customFieldsJson = !empty($customFieldsArr) ? json_encode($customFieldsArr, JSON_UNESCAPED_UNICODE) : null;
+
         $project = Project::create([
             'title' => $validated['title'],
+            'type' => $validated['type'],
             'description' => $validated['description'],
             'category' => $validated['category'],
             'status' => $validated['status'],
+            'office' => $validated['office'] ?? null,
             'slug' => Str::slug($validated['title']).'-'.uniqid(),
+            'information' => $customFieldsJson,
         ]);
 
         foreach ($validated['images'] as $index => $image) {
@@ -83,20 +100,40 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'type' => 'required|in:property,construction',
             'description' => 'nullable|string',
             'category' => 'nullable|string|max:50',
             'status' => 'nullable|string|max:50',
+            'office' => 'nullable|string|max:255',
             'images' => 'sometimes|array|max:20',
             'images.*' => 'required|string',
         ]);
 
+
+        // Handle custom_fields as alternating array of ['key'=>...], ['value'=>...]
+        $customFieldsInput = $request->input('custom_fields', []);
+        $customFieldsArr = [];
+        $count = is_array($customFieldsInput) ? count($customFieldsInput) : 0;
+        for ($i = 0; $i < $count - 1; $i += 2) {
+            $key = isset($customFieldsInput[$i]['key']) ? $customFieldsInput[$i]['key'] : null;
+            $value = isset($customFieldsInput[$i+1]['value']) ? $customFieldsInput[$i+1]['value'] : null;
+            if (($key !== null && $key !== '') || ($value !== null && $value !== '')) {
+                $customFieldsArr[] = ['key' => $key, 'value' => $value];
+            }
+        }
+        $customFieldsJson = !empty($customFieldsArr) ? json_encode($customFieldsArr, JSON_UNESCAPED_UNICODE) : null;
+
         // Update project attributes
         $project->update([
             'title' => $validated['title'],
+            'type' => $validated['type'],
             'description' => empty($validated['description']) ? null : $validated['description'],
             'category' => empty($validated['category']) ? null : $validated['category'],
             'status' => empty($validated['status']) ? null : $validated['status'],
+            'office' => empty($validated['office']) ? null : $validated['office'],
+            'information' => $customFieldsJson,
         ]);
+
 
         if (isset($validated['images'])) {
             $project->images()->delete();
@@ -107,6 +144,7 @@ class ProjectController extends Controller
                     'url' => $image,
                     'position' => $index + 1,
                 ]);
+                print_r($image);
             }
         }
 

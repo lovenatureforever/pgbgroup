@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class AdminHomeController extends Controller
 {
+    public function registerInterestIndex()
+    {
+        $registerInterests = \App\Models\RegisterInterest::with('project')->get();
+        return view('admin.pages.register_interest.index', compact('registerInterests'));
+    }
+
     /**
      * Create a new controller instance.
      *
